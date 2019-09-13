@@ -181,6 +181,8 @@ PJ_DEF(pj_status_t) pjmedia_rtp_decode_rtp2(
     }
 
     /* Payload is located right after header plus CSRC */
+		PJ_LOG(4, (THIS_FILE, "CSRC %d", (*hdr)->cc));
+		PJ_LOG(4, (THIS_FILE, "SSRC %d", pj_ntohl((*hdr)->ssrc)));
     offset = sizeof(pjmedia_rtp_hdr) + ((*hdr)->cc * sizeof(pj_uint32_t));
 
     /* Decode RTP extension. */

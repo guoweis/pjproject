@@ -827,7 +827,7 @@ static void on_rx_rtp( pjmedia_tp_cb_param *param)
      */
     if (seq_st.status.flag.restart) {
 	status = pjmedia_jbuf_reset(stream->jb);
-	PJ_LOG(4,(channel->port.info.name.ptr, "Jitter buffer reset"));
+	PJ_LOG(4,(channel->port.info.name.ptr, "Jitter buffer reset - video"));
     } else {
 	/* Just put the payload into jitter buffer */
 	pjmedia_jbuf_put_frame3(stream->jb, payload, payloadlen, 0,

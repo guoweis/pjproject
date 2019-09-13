@@ -716,6 +716,7 @@ static void parse_rtcp_sdes(pjmedia_rtcp_session *sess,
 	    continue;
 	}
 
+	PJ_LOG(4, (THIS_FILE, "SDES: %d, value: %s", sdes_type, sdes_value));
 	switch (sdes_type) {
 	case RTCP_SDES_CNAME:
 	    sdes->cname = sdes_value;

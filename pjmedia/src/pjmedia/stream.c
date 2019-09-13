@@ -1924,7 +1924,7 @@ static void on_rx_rtp( pjmedia_tp_cb_param *param)
     pj_mutex_lock( stream->jb_mutex );
     if (seq_st.status.flag.restart) {
 	status = pjmedia_jbuf_reset(stream->jb);
-	PJ_LOG(4,(stream->port.info.name.ptr, "Jitter buffer reset"));
+	PJ_LOG(4,(stream->port.info.name.ptr, "Jitter buffer reset - audio"));
     } else {
 	/*
 	 * Packets may contain more than one frames, while the jitter
@@ -2046,6 +2046,8 @@ static void on_rx_rtp( pjmedia_tp_cb_param *param)
 
 	/* Put each frame to jitter buffer. */
 	for (i=0; i<count; ++i) {
+		PJ_LOG(4, (THIS_FILE, "put frame to jitter buffer"));
+
 	    unsigned ext_seq;
 	    pj_bool_t discarded;
 
